@@ -1,0 +1,37 @@
+//User Story #9: Fetch new quote's author and display it
+// This function fetches a new quote from an API and displays both the quote and its author.
+// It uses the Fetch API to make a request to the specified API endpoint.
+function fetchQuoteAndAuthor() {
+  fetch('') //https://api.quotable.io/random Fetches a new random quote from the API
+    .then(response => response.json()) // Parses the JSON response
+    .then(data => { // Handles the retrieved data
+      document.getElementById('text').textContent = data.content; // Displays the quote content
+      document.getElementById('author').textContent = data.author; // Displays the quote author
+    })
+    .catch(error => console.error('Error fetching quote:', error)); // Handles errors if any occur during the fetch operation
+}
+
+// User Story #6: Display a random quote on initial load
+// This event listener triggers when the DOM content is loaded,
+// ensuring that a random quote is displayed when the page is first loaded.
+document.addEventListener('DOMContentLoaded', () => {
+  fetchQuoteAndAuthor(); // Calls the fetchQuoteAndAuthor function to display a random quote
+});
+
+// User Story #8: Fetch a new quote on button click
+// This event listener triggers when the "New Quote" button is clicked.
+// It fetches a new quote and updates the displayed quote and author.
+document.getElementById('new-quote').addEventListener('click', () => {
+  fetchQuoteAndAuthor(); // Calls the fetchQuoteAndAuthor function to fetch and display a new quote
+});
+
+// User Story #10: Tweet the current quote
+// This event listener triggers when the "Tweet Quote" button is clicked.
+// It constructs a tweet URL using the current quote content and author,
+// then opens a new window to allow the user to tweet the quote.
+document.getElementById('tweet-quote').addEventListener('click', () => {
+  const text = document.getElementById('text').textContent; // Retrieves the current quote content
+  const author = document.getElementById('author').textContent; // Retrieves the current quote author
+  const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${text}" - ${author}`)}`; // Constructs the tweet URL
+  window.open(tweetUrl, '_top'); // Opens a new window to tweet the quote
+});
