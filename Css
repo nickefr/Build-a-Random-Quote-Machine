@@ -1,0 +1,48 @@
+body {
+  background-color: #000000; /* Twitter blue background color for the entire page */
+}
+/* Stylesheet for Random Quote Machine */
+#wrapper {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#quote-box {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1da1f2;
+  color: #fff; /* Text color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text {
+  font-size: 1.5rem;
+}
+
+.quote-author {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1rem;
+  background-color:#ff0000; /* Button color */
+  color: #1da1f2; /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color:  #1da1f2; /* Button hover color */
+}
